@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Fridgify
 // Arnav was here
-// Ronak was here!!!
+// Ronak was here!!
 //  Created by Arnav Patidar on 10/22/22.
 //
 
