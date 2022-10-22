@@ -7,17 +7,25 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            VStack {
-                ScrollView {
-                    ForEach(0 ..< 15) { item in
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.orange)
-                            .frame(height: 44)
-                            .padding()
-                    }
+            ScrollView {
+                VStack {
+                    Spacer()
+                    Button("Scan Receipt") {
+                        
+                    } .padding()
+                        .background(Color.green)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(15)
+                }
+                ForEach(0 ..< 15) { item in
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(Color.orange)
+                        .frame(height: 44)
+                        .padding()
                 }
             }
             .navigationTitle("Fridgify")
