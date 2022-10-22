@@ -14,7 +14,7 @@ struct ContentView: View {
             ScrollView {
                 VStack {
                     Spacer()
-                    Button("Scan Receipt") {
+                    Button("Scan Receipt!") {
                         
                     } .padding()
                         .background(Color.green)
