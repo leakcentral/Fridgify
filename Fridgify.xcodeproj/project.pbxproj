@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE1BE99E2904890F00C8E31E /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1BE99D2904890F00C8E31E /* PhotoCaptureView.swift */; };
 		DE56319329047D3B0033B9ED /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56319229047D3B0033B9ED /* ImagePicker.swift */; };
 		DEEED13E29044F51008E7677 /* FridgifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEED13D29044F51008E7677 /* FridgifyApp.swift */; };
 		DEEED14029044F51008E7677 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEED13F29044F51008E7677 /* ContentView.swift */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE1BE99D2904890F00C8E31E /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
 		DE56319229047D3B0033B9ED /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DEEED13A29044F51008E7677 /* Fridgify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fridgify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEEED13D29044F51008E7677 /* FridgifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgifyApp.swift; sourceTree = "<group>"; };
@@ -54,8 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				DEEED13D29044F51008E7677 /* FridgifyApp.swift */,
-				DE56319229047D3B0033B9ED /* ImagePicker.swift */,
 				DEEED13F29044F51008E7677 /* ContentView.swift */,
+				DE56319229047D3B0033B9ED /* ImagePicker.swift */,
+				DE1BE99D2904890F00C8E31E /* PhotoCaptureView.swift */,
 				DEEED14129044F53008E7677 /* Assets.xcassets */,
 				DEEED14329044F53008E7677 /* Preview Content */,
 			);
@@ -142,6 +145,7 @@
 			files = (
 				DE56319329047D3B0033B9ED /* ImagePicker.swift in Sources */,
 				DEEED14029044F51008E7677 /* ContentView.swift in Sources */,
+				DE1BE99E2904890F00C8E31E /* PhotoCaptureView.swift in Sources */,
 				DEEED13E29044F51008E7677 /* FridgifyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +275,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fridgify/Preview Content\"";
+				DEVELOPMENT_TEAM = UPNLUK6R6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Give camera permission!";
@@ -300,6 +305,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fridgify/Preview Content\"";
+				DEVELOPMENT_TEAM = UPNLUK6R6K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Give camera permission!";

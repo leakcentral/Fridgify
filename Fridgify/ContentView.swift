@@ -11,9 +11,8 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    @State private var selectedImage: UIImage?
-    @State private var isImagePickerDisplay = false
+    @State private var showImagePicker: Bool = false
+    @State private var image: Image? = nil
     
     var body: some View {
         NavigationView {
@@ -21,19 +20,20 @@ struct ContentView: View {
                 VStack {
                     Spacer()
                     Button("Scan Receipt!") {
-                        self.sourceType = .camera
-                        self.isImagePickerDisplay.toggle()
+                        self.showImagePicker = true
                     } .padding()
                         .background(Color.green)
                         .foregroundColor(Color.white)
                         .cornerRadius(15)
+                }.sheet(isPresented: self.$showImagePicker) {
+                    PhotoCaptureView(showImagePicker: self.$showImagePicker, image: self.$image)
                 }
-                ForEach(0 ..< 15) { item in
-                    RoundedRectangle(cornerRadius: 12)
-                        .fill(Color.orange)
-                        .frame(height: 44)
-                        .padding()
-                }
+                //ForEach(0 ..< 15) { item in
+                  //  RoundedRectangle(cornerRadius: 12)
+                    //    .fill(Color.orange)
+                      //  .frame(height: 44)
+                        //.padding()
+                //}
             }
             .navigationTitle("Fridgify")
         }
@@ -50,8 +50,10 @@ struct ContentView: View {
     }
 }
 
+#if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+#endif

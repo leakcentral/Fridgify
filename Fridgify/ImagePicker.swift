@@ -5,43 +5,51 @@
 //  Created by Arnav Patidar on 10/22/22.
 //
 
-import UIKit
+
+import Foundation
 import SwiftUI
 
-struct ImagePickerView: UIViewControllerRepresentable {
+class ImagePickerCoordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    @Binding var selectedImage: UIImage?
-    @Environment(\.presentationMode) var isPresented
-    var sourceType: UIImagePickerController.SourceType
-        
-    func makeUIViewController(context: Context) -> UIImagePickerController {
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = self.sourceType
-        imagePicker.delegate = context.coordinator // confirming the delegate
-        return imagePicker
-    }
-
-    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {
-
-    }
-
-    // Connecting the Coordinator class with this struct
-    func makeCoordinator() -> Coordinator {
-        return Coordinator(picker: self)
-    }
-}
-
-class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    var picker: ImagePickerView
+    @Binding var isShown: Bool
+    @Binding var image: Image?
     
-    init(picker: ImagePickerView) {
-        self.picker = picker
+    init(isShown: Binding<Bool>, image: Binding<Image?>) {
+        _isShown = isShown
+        _image = image
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let selectedImage = info[.originalImage] as? UIImage else { return }
-        self.picker.selectedImage = selectedImage
-        self.picker.isPresented.wrappedValue.dismiss()
+        
+        let uiImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
+        image = Image(uiImage: uiImage)
+        isShown = false
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        isShown = false
+    }
+    
+}
+
+struct ImagePicker: UIViewControllerRepresentable {
+    
+    @Binding var isShown: Bool
+    @Binding var image: Image?
+    
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: UIViewControllerRepresentableContext<ImagePicker>) {
+        
+    }
+    
+    func makeCoordinator() -> ImagePickerCoordinator {
+        return ImagePickerCoordinator(isShown: $isShown, image: $image)
+    }
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.delegate = context.coordinator
+        return picker
     }
     
 }
