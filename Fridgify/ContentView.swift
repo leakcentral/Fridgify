@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Fridgify
 // Arnav was here
-//  Created by Arnav Patidar on 10/22/22.
+//  Created by Arnav nPatidar on 10/22/22.
 //
 
 import SwiftUI
