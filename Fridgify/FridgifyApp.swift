@@ -2,7 +2,7 @@
 //  FridgifyApp.swift
 //  Fridgify
 //
-//  Created by Arnav Patidar on 10/22/22.
+//  Created by Ronak Agarwal, Arnav Patidar, Suhas Kumar, Sohan Malladi on 10/22/22.
 //
 
 import SwiftUI
