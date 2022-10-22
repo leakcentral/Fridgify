@@ -8,14 +8,21 @@
 import SwiftUI
 
 
+
+
 struct ContentView: View {
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var selectedImage: UIImage?
+    @State private var isImagePickerDisplay = false
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
                     Spacer()
                     Button("Scan Receipt!") {
-                        
+                        self.sourceType = .camera
+                        self.isImagePickerDisplay.toggle()
                     } .padding()
                         .background(Color.green)
                         .foregroundColor(Color.white)
