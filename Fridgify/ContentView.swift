@@ -46,6 +46,7 @@ struct ContentView: View {
             // Large Title appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
         }
+
     }
 }
 
