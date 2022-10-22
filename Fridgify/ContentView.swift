@@ -3,7 +3,7 @@
 //  Fridgify
 //
 //  Created by Ronak Agarwal, Arnav Patidar, Suhas Kumar, Sohan Malladi on 10/22/22.
-// Suhas was here
+// 
 
 import SwiftUI
 
@@ -13,6 +13,9 @@ struct ContentView: View {
             .fontWeight(.bold)
             .font(.title)
             .padding()
+        Text("Enter your items").padding()
+        let name = readline()
+        Text(name).padding
     }
 }
 
