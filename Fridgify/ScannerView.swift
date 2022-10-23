@@ -2,7 +2,7 @@
 //  ScannerView.swift
 //  Fridgify
 //
-//  Created by Arnav Patidar on 10/22/22.
+//  Scanner Class
 //
 
 import VisionKit
