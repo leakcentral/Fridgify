@@ -47,8 +47,8 @@ class Checker {
         }
     }
 }
-
-var fridgeList : [String] = ["Milk", "Fish", "Cottage Cheese", "Spinach"]
+var fridge : String = "Milk\nFish\nCottage Cheese\nBob"
+var fridgeList : [String] = fridge.components(separatedBy: "\n")
 let toCheck = Checker(fridgeList)
 toCheck.createList()
 print(toCheck.returnFridgeList())
