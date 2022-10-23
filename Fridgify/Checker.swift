@@ -7,7 +7,7 @@ class Checker {
     init(_ fridgeList: [String]) {
         self.fridgeList = fridgeList
     }
-    var myDictionary : [String: Int] = ["Milk" : 10, "Tomatoes" : 14, "Fish" : 4, "Chicken" : 4, "Cottage Cheese" : 10, "P"]
+    var myDictionary : [String: Int] = ["Milk" : 10, "Tomatoes" : 14, "Fish" : 4, "Chicken" : 4, "Cottage Cheese" : 10,]
     func createList() {
         for food in fridgeList {
             for(key, value) in myDictionary{
