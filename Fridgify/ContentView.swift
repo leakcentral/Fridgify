@@ -57,17 +57,6 @@ struct ContentView: View {
 
     }
     
-  //  private func makeScannerView()-> ScannerView {
-  //      ScannerView(completion: {
-    //        textPerPage in
-  //          if let outputText = textPerPage?.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines){
-     //           let newScanData = ScanData(content: outputText)
-      //          self.texts.append(newScanData)
-      //      }
-       //     self.showScannerSheet = false
-    //    })
-   // }
-    
     private func makeScannerView() -> ScannerView {
             ScannerView(completion: { textPerPage in
                 if let text = textPerPage?.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines) {
@@ -85,3 +74,12 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 #endif
+
+var fridge : [String] = text
+var fridgeList : [String] = fridge.components(separatedBy: "\n")
+let toCheck = Checker(fridgeList)
+toCheck.createList()
+print(toCheck.returnFridgeList())
+print(toCheck.returnFood("Milk"))
+toCheck.setValue("Milk" , 25)
+print(toCheck.returnFridgeList())
