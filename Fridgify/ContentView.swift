@@ -3,33 +3,85 @@
 //  Fridgify
 //
 //  Created by Ronak Agarwal, Arnav Patidar, Suhas Kumar, Sohan Malladi on 10/22/22.
-// 
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        List(0 .. < 5) { item in 
-        VStack(alignment: .leading) {
 
-        Text("Item (Placeholder)")
-        Text("Expires in idk")
-        .font(.subheadline)
-        .foregroundColor(.secondary)
-        }
-        }
+
+struct ContentView: View {
+    @State private var showScannerSheet = false
+    @State private var text: String = ""
+    
+    var body: some View {
         
-            //.fontWeight(.bold)
-            //.font(.title)
-            .padding()
-        //Text("Enter your items").padding()
-        //let name = readline()
-        //Text(name).padding
+        NavigationView {
+            ScrollView {
+                VStack{
+                    if text.count > 0{
+                        Text(text)
+                    }
+                    else{
+                        Text("No scan yet").font(.title)
+                    }
+                }
+                    
+                      //  RoundedRectangle(cornerRadius: 12)
+                        //    .fill(Color.orange)
+                          //  .frame(height: 44)
+                            //.padding()
+                    //}
+                .navigationTitle("Fridgify")
+                .navigationBarItems(trailing: Button(action: {
+                        self.showScannerSheet = true
+                    }, label: {
+                        Image(systemName: "doc.text.viewfinder")
+                            .font(.title)
+                    })
+                    .sheet(isPresented: $showScannerSheet, content: {
+                        self.makeScannerView()
+                    })
+                    )
+            }
+        }
+            
+        .onAppear {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+            appearance.backgroundColor = UIColor(Color.orange.opacity(0.2))
+            
+            // Inline appearance (standard height appearance)
+            UINavigationBar.appearance().standardAppearance = appearance
+            // Large Title appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
+
     }
+    
+  //  private func makeScannerView()-> ScannerView {
+  //      ScannerView(completion: {
+    //        textPerPage in
+  //          if let outputText = textPerPage?.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines){
+     //           let newScanData = ScanData(content: outputText)
+      //          self.texts.append(newScanData)
+      //      }
+       //     self.showScannerSheet = false
+    //    })
+   // }
+    
+    private func makeScannerView() -> ScannerView {
+            ScannerView(completion: { textPerPage in
+                if let text = textPerPage?.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines) {
+                    self.text = text
+                }
+                self.showScannerSheet = false
+            })
+        }
 }
 
+#if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+#endif
