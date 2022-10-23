@@ -8,34 +8,42 @@ import SwiftUI
 
 
 
-
 struct ContentView: View {
-    @State private var showImagePicker: Bool = false
-    @State private var image: Image? = nil
+    @State private var showScannerSheet = false
+    @State private var text: String = ""
     
     var body: some View {
+        
         NavigationView {
             ScrollView {
-                VStack {
-                    Spacer()
-                    Button("Scan Receipt!") {
-                        self.showImagePicker = true
-                    } .padding()
-                        .background(Color.green)
-                        .foregroundColor(Color.white)
-                        .cornerRadius(15)
-                }.sheet(isPresented: self.$showImagePicker) {
-                    PhotoCaptureView(showImagePicker: self.$showImagePicker, image: self.$image)
+                VStack{
+                    if text.count > 0{
+                        Text(text)
+                    }
+                    else{
+                        Text("No scan yet").font(.title)
+                    }
                 }
-                //ForEach(0 ..< 15) { item in
-                  //  RoundedRectangle(cornerRadius: 12)
-                    //    .fill(Color.orange)
-                      //  .frame(height: 44)
-                        //.padding()
-                //}
+                    
+                      //  RoundedRectangle(cornerRadius: 12)
+                        //    .fill(Color.orange)
+                          //  .frame(height: 44)
+                            //.padding()
+                    //}
+                .navigationTitle("Fridgify")
+                .navigationBarItems(trailing: Button(action: {
+                        self.showScannerSheet = true
+                    }, label: {
+                        Image(systemName: "doc.text.viewfinder")
+                            .font(.title)
+                    })
+                    .sheet(isPresented: $showScannerSheet, content: {
+                        self.makeScannerView()
+                    })
+                    )
             }
-            .navigationTitle("Fridgify")
         }
+            
         .onAppear {
             let appearance = UINavigationBarAppearance()
             appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
@@ -48,6 +56,26 @@ struct ContentView: View {
         }
 
     }
+    
+  //  private func makeScannerView()-> ScannerView {
+  //      ScannerView(completion: {
+    //        textPerPage in
+  //          if let outputText = textPerPage?.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines){
+     //           let newScanData = ScanData(content: outputText)
+      //          self.texts.append(newScanData)
+      //      }
+       //     self.showScannerSheet = false
+    //    })
+   // }
+    
+    private func makeScannerView() -> ScannerView {
+            ScannerView(completion: { textPerPage in
+                if let text = textPerPage?.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines) {
+                    self.text = text
+                }
+                self.showScannerSheet = false
+            })
+        }
 }
 
 #if DEBUG

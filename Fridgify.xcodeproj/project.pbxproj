@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DE1BE99E2904890F00C8E31E /* PhotoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1BE99D2904890F00C8E31E /* PhotoCaptureView.swift */; };
+		DE4E5A4F2904A9430049E123 /* ScanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E5A4E2904A9430049E123 /* ScanData.swift */; };
+		DE4E5A532904AA130049E123 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E5A522904AA130049E123 /* ScannerView.swift */; };
+		DE4E5A552904AA500049E123 /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E5A542904AA500049E123 /* TextRecognizer.swift */; };
 		DE56319329047D3B0033B9ED /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE56319229047D3B0033B9ED /* ImagePicker.swift */; };
 		DEEED13E29044F51008E7677 /* FridgifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEED13D29044F51008E7677 /* FridgifyApp.swift */; };
 		DEEED14029044F51008E7677 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEED13F29044F51008E7677 /* ContentView.swift */; };
@@ -17,6 +20,9 @@
 
 /* Begin PBXFileReference section */
 		DE1BE99D2904890F00C8E31E /* PhotoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCaptureView.swift; sourceTree = "<group>"; };
+		DE4E5A4E2904A9430049E123 /* ScanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanData.swift; sourceTree = "<group>"; };
+		DE4E5A522904AA130049E123 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		DE4E5A542904AA500049E123 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
 		DE56319229047D3B0033B9ED /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DEEED13A29044F51008E7677 /* Fridgify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fridgify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEEED13D29044F51008E7677 /* FridgifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgifyApp.swift; sourceTree = "<group>"; };
@@ -57,9 +63,12 @@
 			children = (
 				DEEED13D29044F51008E7677 /* FridgifyApp.swift */,
 				DEEED13F29044F51008E7677 /* ContentView.swift */,
+				DE4E5A4E2904A9430049E123 /* ScanData.swift */,
+				DE4E5A522904AA130049E123 /* ScannerView.swift */,
+				DE4E5A542904AA500049E123 /* TextRecognizer.swift */,
+				DEEED14129044F53008E7677 /* Assets.xcassets */,
 				DE56319229047D3B0033B9ED /* ImagePicker.swift */,
 				DE1BE99D2904890F00C8E31E /* PhotoCaptureView.swift */,
-				DEEED14129044F53008E7677 /* Assets.xcassets */,
 				DEEED14329044F53008E7677 /* Preview Content */,
 			);
 			path = Fridgify;
@@ -146,7 +155,10 @@
 				DE56319329047D3B0033B9ED /* ImagePicker.swift in Sources */,
 				DEEED14029044F51008E7677 /* ContentView.swift in Sources */,
 				DE1BE99E2904890F00C8E31E /* PhotoCaptureView.swift in Sources */,
+				DE4E5A532904AA130049E123 /* ScannerView.swift in Sources */,
 				DEEED13E29044F51008E7677 /* FridgifyApp.swift in Sources */,
+				DE4E5A552904AA500049E123 /* TextRecognizer.swift in Sources */,
+				DE4E5A4F2904A9430049E123 /* ScanData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
