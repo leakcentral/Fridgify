@@ -11,18 +11,26 @@ import SwiftUI
 struct ContentView: View {
     @State private var showScannerSheet = false
     @State private var text: String = ""
+    //@State private var fridge : String = ""
+    @StateObject var check = Checker()
     
     var body: some View {
+    
         
         NavigationView {
             ScrollView {
                 VStack{
                     if text.count > 0{
-                        Text(text)
+                        Text(check.expirationDates.description)
+                        .padding()
                     }
                     else{
                         Text("No scan yet").font(.title)
                     }
+                    Text("Update")
+                        .onTapGesture {
+                            check.update(fridge: text)
+                       }
                 }
                     
                       //  RoundedRectangle(cornerRadius: 12)
@@ -37,6 +45,7 @@ struct ContentView: View {
                         Image(systemName: "doc.text.viewfinder")
                             .font(.title)
                     })
+
                     .sheet(isPresented: $showScannerSheet, content: {
                         self.makeScannerView()
                     })
@@ -45,6 +54,7 @@ struct ContentView: View {
         }
             
         .onAppear {
+            check.update(fridge: text)
             let appearance = UINavigationBarAppearance()
             appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
             appearance.backgroundColor = UIColor(Color.orange.opacity(0.2))
@@ -74,12 +84,3 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 #endif
-
-var fridge : [String] = text
-var fridgeList : [String] = fridge.components(separatedBy: "\n")
-let toCheck = Checker(fridgeList)
-toCheck.createList()
-print(toCheck.returnFridgeList())
-print(toCheck.returnFood("Milk"))
-toCheck.setValue("Milk" , 25)
-print(toCheck.returnFridgeList())
